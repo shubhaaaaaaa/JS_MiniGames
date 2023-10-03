@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listener</title>
+</head>
+<body>
+    <canvas id="canvas" width="500px" height="500px" style="background-color: black;">
+
+    </canvas>
+</body>
+
+<script>
+
+const canvas = document.getElementById("canvas"); //paper
+const context = canvas.getContext("2d"); //pen
+
+canvas.addEventListener("mousemove", (event) => {
+    
+    context.clearRect(0, 0, 500, 500); //clear canvas screen
+
+    //circle3
+    context.beginPath();
+    context.fillStyle = "blue";
+    context.arc(event.clientX, event.clientY, 30, 0, 360);
+    context.fill();
+
+    
+    //circle2
+    context.beginPath();
+    context.fillStyle = "red";
+    context.arc(event.clientX, event.clientY, 20, 0, 360);
+    context.fill();
+
+    //circle1
+    context.beginPath();
+    context.fillStyle = "yellow";
+    context.arc(event.clientX, event.clientY, 10, 0, 360);
+    context.fill();
+
+});
+
+document.addEventListener("keypress", (event) => {
+
+    console.log(event.key);
+
+});
+
+</script>
+</html>
