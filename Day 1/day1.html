@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scenic Canvas</title>
+</head>
+<body>
+    <canvas id="canvas" width="500px" height="350px" style="background-color: #0C0705;"></canvas>
+
+    <script>
+        const canvas = document.getElementById("canvas");
+        const context = canvas.getContext("2d");
+
+        // Road
+        context.fillStyle = "#c9e9f6";
+        context.fillRect(0, 0, 500, 250);
+
+        // Traffic Light
+        context.fillStyle = "black";
+        context.fillRect(20, 40, 180, 60);
+
+        context.fillStyle = "#855e42";
+        context.fillRect(100, 100, 20, 150);
+
+        context.fillStyle = "red";
+        context.beginPath();
+        context.arc(50, 70, 20, 0, 360);
+        context.fill();
+
+        context.fillStyle = "green";
+        context.beginPath();
+        context.arc(110, 70, 20, 0, 360);
+        context.fill();
+
+        context.fillStyle = "orange";
+        context.beginPath();
+        context.arc(170, 70, 20, 0, 360);
+        context.fill();
+
+        // Sun
+        context.fillStyle = "#FFD700";
+        context.beginPath();
+        context.arc(400, 40, 30, 0, 360);
+        context.fill();
+
+        // Clouds
+        context.fillStyle = "#FFFFFF";
+        context.beginPath();
+        context.arc(330, 80, 30, 0, 360);
+        context.arc(370, 80, 30, 0, 360);
+        context.arc(410, 80, 30, 0, 360);
+        context.fill();
+
+        // Tree
+        context.fillStyle = "#8B4513";
+        context.fillRect(450, 150, 20, 100);
+
+        context.fillStyle = "#228B22";
+        context.beginPath();
+        context.moveTo(460, 100);
+        context.lineTo(500, 150);
+        context.lineTo(420, 150);
+        context.closePath();
+        context.fill();
+
+        context.fillStyle = "#228B22";
+        context.beginPath();
+        context.moveTo(460, 130);
+        context.lineTo(500, 180);
+        context.lineTo(420, 180);
+        context.closePath();
+        context.fill();
+
+    </script>
+</body>
+</html>
