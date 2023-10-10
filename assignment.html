@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas
+        style="background-color: skyblue;"
+        id="canvas"
+        width="1000"
+        height="600"
+    ></canvas>
+
+    <script>
+        const canvas = document.getElementById("canvas");
+        const c = canvas.getContext("2d");
+        const droplets = [];
+        const DROPLET_SPEED = 2;
+
+        canvas.addEventListener("click", (event) => {
+            const x = event.clientX;
+            const y = event.clientY;
+
+            let radius = Math.random() * (10 - 2) + 2;
+            droplets.push({ x, y, radius, speedY: DROPLET_SPEED });
+        });
+
+        class Circle {
+            constructor(x, y, radius) {
+                this.radius = radius;
+                this.x = x;
+                this.y = y;
+                this.color = "white";
+            }
+
+            draw() {
+                c.beginPath();
+                c.fillStyle = this.color;
+                c.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+                c.fill();
+            }
+        }
+
+        class Rect {
+            constructor(x, y, height, width, color) {
+                this.height = height;
+                this.width = width;
+                this.x = x;
+                this.y = y;
+                this.color = color;
+            }
+
+            draw() {
+                c.beginPath();
+                c.fillStyle = this.color;
+                c.fillRect(this.x, this.y, this.width, this.height);
+                c.fill();
+            }
+        }
+
+        const circle1 = new Circle(40, 40, 57);
+        const circle2 = new Circle(100, 30, 50);
+        const circle3 = new Circle(300, 20, 60);
+        const circle4 = new Circle(220, 30, 40);
+        const circle5 = new Circle(160, 10, 40);
+        const circle55 = new Circle(370, 10, 30);
+        const circle6 = new Circle(450, 20, 57);
+        const circle7 = new Circle(510, 30, 50);
+        const circle8 = new Circle(710, 20, 60);
+        const circle9 = new Circle(630, 30, 40);
+        const circle10 = new Circle(570, 10, 40);
+        const circle11 = new Circle(790, 10, 30);
+        const circle12 = new Circle(870, 20, 57);
+        const circle13 = new Circle(950, 30, 50);
+        const circle14 = new Circle(1000, 10, 20);
+
+        const rect1 = new Rect(0, 500, 100, 1000, 'black');
+        const rect2 = new Rect(0, 540, 20, 50, 'white');
+        const rect3 = new Rect(150, 540, 20, 120, 'white');
+        const rect4 = new Rect(370, 540, 20, 120, 'white');
+        const rect5 = new Rect(590, 540, 20, 120, 'white');
+        const rect6 = new Rect(810, 540, 20, 120, 'white');
+
+
+        function renderDroplet(x, y, radius) {
+            c.beginPath();
+            c.fillStyle = "#0e87cc ";
+            c.arc(x, y, radius, 0, 2 * Math.PI);
+            c.fill();
+
+            c.beginPath();
+            c.fillStyle = "#0e87cc ";
+            c.moveTo(x, y - 60);
+            c.lineTo(x - radius - 1, y);
+            c.lineTo(x + radius + 1, y);
+            c.fill();
+        }
+
+        function checkCollision(droplet) {
+            if (droplet.y + droplet.radius > canvas.height - 100) {
+                droplet.speedY *= -1; // Reverse the vertical direction
+            }
+        }
+
+        function animate() {
+            // Clear the canvas
+            c.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < droplets.length; i++) {
+                const droplet = droplets[i];
+                droplet.y += droplet.speedY;
+
+                renderDroplet(droplet.x, droplet.y, droplet.radius);
+
+                checkCollision(droplet);
+            }
+
+            // Draw the circle
+            circle1.draw();
+            circle2.draw();
+            circle3.draw();
+            circle4.draw();
+            circle5.draw();
+            circle6.draw();
+            circle7.draw();
+            circle8.draw();
+            circle9.draw();
+            circle10.draw();
+            circle55.draw();
+            circle11.draw();
+            circle12.draw();
+            circle13.draw();
+            circle14.draw();
+
+            rect1.draw();
+            rect2.draw();
+            rect3.draw();
+            rect4.draw();
+            rect5.draw();
+            rect6.draw();
+
+            requestAnimationFrame(animate);
+        }
+
+        animate(); // Start the animation loop
+    </script>
+</body>
+</html>

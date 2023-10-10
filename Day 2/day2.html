@@ -12,7 +12,6 @@
 </body>
 
 <script>
-
 const canvas = document.getElementById("canvas"); //paper
 const context = canvas.getContext("2d"); //pen
 
@@ -26,7 +25,6 @@ canvas.addEventListener("mousemove", (event) => {
     context.arc(event.clientX, event.clientY, 30, 0, 360);
     context.fill();
 
-    
     //circle2
     context.beginPath();
     context.fillStyle = "red";
@@ -42,9 +40,7 @@ canvas.addEventListener("mousemove", (event) => {
 });
 
 document.addEventListener("keypress", (event) => {
-
     console.log(event.key);
-
 });
 
 </script>

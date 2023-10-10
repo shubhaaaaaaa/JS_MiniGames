@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Loop</title>
+  </head>
+  <body>
+    <canvas
+      style="background-color: black"
+      id="canvas"
+      width="1000"
+      height="1000"
+    ></canvas>
+
+    <script>
+      const canvas = document.getElementById("canvas");
+      const c = canvas.getContext("2d");
+
+      let stars = [];
+
+      function renderDots(x, y, rand) {
+        c.beginPath();
+        c.arc(x, y, rand, 0, 360);
+        c.fillStyle = 'white'; 
+        c.fill();
+      }
+
+      // Game Loop
+      function animate() {
+        c.clearRect(0, 0, 1000, 1000);
+
+          // Generate new stars during the loop
+          if (Math.random() < 0.3) { //30% chance code inside will be executed
+          let x = Math.random() * 1000; 
+          let y = 0;
+          let rand = Math.random() * (5 - 2) + 2;
+          let speed = Math.random() * (5 - 1) + 1;
+          stars.push({ x, y, rand, speed });
+        }
+
+        for (let i = 0; i < stars.length; i++) {
+          const star = stars[i];
+          star.y += star.speed;
+        //   star.x += star.speed; 
+          renderDots(star.x, star.y, star.rand);
+        }
+
+        window.requestAnimationFrame(animate);
+      }
+
+      animate();
+
+    </script>
+  </body>
+</html>
