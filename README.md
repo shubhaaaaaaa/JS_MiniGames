@@ -3,6 +3,7 @@
 Link: https://space-shooter-by-shubha.surge.sh/
 
 ![App Screenshot](https://github.com/shubhaaaaaaa/JS_MiniGames/blob/main/Screenshots/Space%20Shooter.png)
+(https://github.com/shubhaaaaaaa/JS_MiniGames/blob/main/Screenshots/Screenshot1.png)
  
 ## Feedback
 
