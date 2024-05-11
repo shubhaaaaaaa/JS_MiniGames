@@ -1,5 +1,6 @@
  ## Screenshots
-This is what the site looks like. The number increases as people join in.
+*Space Shooter*
+Link: https://space-shooter-by-shubha.surge.sh/
 
 ![App Screenshot](https://github.com/shubhaaaaaaa/JS_MiniGames/blob/main/Screenshots/Space%20Shooter.png)
  
